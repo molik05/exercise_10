@@ -2,14 +2,17 @@
 
 ### Task 1: Implement `SuffixArray()` function
 Input: string
+
 Output: suffix array
 
 ### Task 2: Implement `InverseSuffixArray()` function
 Input: suffix array
+
 Output: inverse suffix array
 
 ### Task 3: Implement `LCPArray()` function
 Input: text, suffix array, inverse suffix array
+
 Output: longest common prefix array
 
 ```
@@ -33,6 +36,7 @@ The text will be indexed at *n* + 1 position, that does not exist. Add one chara
 
 ### Task 4: Implement `BinarySearchSA()` function
 Input: pattern, text, SA
+
 Output: SA indexes of the first and the last match of the pattern in the text
 
 ```
