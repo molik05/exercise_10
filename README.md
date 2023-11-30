@@ -1,26 +1,40 @@
-# Suffix trees
+# Suffix Trees
 
-### Task 1: Implement `SuffixArray()` function
-Input: string
+### Task 1
+ * In R, implement a function `SuffixArray()` to create a suffix array from a string.
 
-Output: suffix array
+ * Input:
+   * a DNAString 
 
-### Task 2: Implement `InverseSuffixArray()` function
-Input: suffix array
+ * Output:
+   * a vector of integers
 
-Output: inverse suffix array
+### Task 2
+ * In R, implement a function `InverseSuffixArray()` to create an inverse suffix array from a suffix array.
 
-### Task 3: Implement `LCPArray()` function
-Input: text, suffix array, inverse suffix array
+ * Input:
+   * a vector of integers representing suffix array
 
-Output: longest common prefix array
+ * Output:
+   * a vector of integers
+
+### Task 3
+ * In R, implement a function `LCPArray()` according to pseudocode.
+
+ * Input:
+   * a DNAString representing analyzed string
+   * a vector of integers representing a suffix array
+   * a vector of integers representing an inverse suffix array
+
+ * Output:
+   * a vector of integers
 
 ```
 LCPArray(text, SA, ISA)
   LCP[1] <- -1
-  LCP[n + 1] <- -1
+  LCP[m + 1] <- -1
   l <- 0
-  for i <- 1 to n do
+  for i <- 1 to m
     j <- ISA[i]
     if j > 1 then
       k <- SA[j - 1]
@@ -28,16 +42,22 @@ LCPArray(text, SA, ISA)
         l <- l + 1
       LCP[j] <- l
       l <- max{l - 1, 0}
+  return LCP
 ```
 
-Hint: 
-The text will be indexed at *n* + 1 position, that does not exist. Add one character at the end of the text (in general use `$`, for `DNAString` in R use `+`).
+**Hint:** 
+The text will be indexed at *m* + 1 position, that does not exist. Add one character at the end of the text (in general use `$`, for `DNAString` in R use `+`).
 
+### Task 4
+ * In R, implement a function `BinarySearchSA()` according to the following pseudocode.
 
-### Task 4: Implement `BinarySearchSA()` function
-Input: pattern, text, SA
+ * Input:
+   * a vector of integers representing a suffix array
+   * a DNAString representing a pattern to be found
+   * a DNAString representing a text to be searched
 
-Output: SA indexes of the first and the last match of the pattern in the text
+* Output:
+ * a vector of two integers (start and end indexes of suffix array, where the pattern was found)
 
 ```
 BinarySearchSA(Pattern, Text, SuffixArray)
@@ -68,7 +88,7 @@ BinarySearchSA(Pattern, Text, SuffixArray)
 <details>
 <summary>Download files from GitHub</summary>
 <details>
-<summary>Git settings</summary>
+<summary>Basic Git settings</summary>
 
 > * Configure the Git editor
 > ```bash
@@ -89,27 +109,28 @@ BinarySearchSA(Pattern, Text, SuffixArray)
 * Create a fork on your GitHub account. 
   On the GitHub page of this repository find a <kbd>Fork</kbd> button in the upper right corner.
   
-* Cloned forked repository from your GitHub page to a folder in your computer:
+* Clone forked repository from your GitHub page to your computer:
 ```bash
 git clone <fork repository address>
 ```
-* In a local repository, set new remote for project repository:
+* In a local repository, set new remote for a project repository:
 ```bash
-git remote add upstream https://github.com/mpa-prg/exercise_08.git
+git remote add upstream https://github.com/mpa-prg/exercise_10.git
 ```
 
-### Send files to GitHub
+#### Send files to GitHub
 Create a new commit and send new changes to your remote repository.
 * Add file to a new commit.
 ```bash
 git add <file_name>
 ```
-* Create commit, enter commit message, save the file and close it.
+* Create a new commit, enter commit message, save the file and close it.
 ```bash
 git commit
 ```
-* Send new commit to your GitHub repository.
+* Send a new commit to your GitHub repository.
 ```bash
-git push origin master
+git push origin main
 ```
+
 </details>
