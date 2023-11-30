@@ -31,18 +31,18 @@
 
 ```
 LCPArray(text, SA, ISA)
-  LCP[1] <- -1
-  LCP[m + 1] <- -1
-  l <- 0
-  for i <- 1 to m
-    j <- ISA[i]
-    if j > 1 then
-      k <- SA[j - 1]
-      while text[k + l] = text[i + l] do
-        l <- l + 1
-      LCP[j] <- l
-      l <- max{l - 1, 0}
-  return LCP
+1   LCP[1] <- -1
+2   LCP[m + 1] <- -1
+3   l <- 0
+4   for i <- 1 to m
+5     j <- ISA[i]
+6     if j > 1 then
+7       k <- SA[j - 1]
+8       while text[k + l] = text[i + l] do
+9         l <- l + 1
+10      LCP[j] <- l
+11      l <- max{l - 1, 0}
+12  return LCP
 ```
 
 **Hint:** 
@@ -61,27 +61,27 @@ The text will be indexed at *m* + 1 position, that does not exist. Add one chara
 
 ```
 BinarySearchSA(Pattern, Text, SuffixArray)
-  minIndex <- 1
-  maxIndex <- length (Text)
-  while minIndex < maxIndex
-    midlIndex <- floor(minIndex + maxIndex) / 2
-    if Pattern <= suffix of Text starting at position SuffixArray(midlIndex)
-      maxIndex <- midlIndex
-    else
-      minIndex <- midlIndex + 1
-  First <- minIndex
-  maxIndex <- length(Text)
-  while maxIndex > minIndex
-    midlIndex <- floor(minIndex + maxIndex) / 2
-    if suffix of Text starting at position SuffixArray(midlIndex) <= Pattern
-      minIndex <- midlIndex + 1
-    else
-      maxInd <- midlIndex
-  Last <- maxIndex - 1
-  if Last < First
-    return('Pattern does not appear in Text')
-  else
-    return(First, Last)
+1   minIndex <- 1
+2   maxIndex <- length (Text)
+3   while minIndex < maxIndex
+4     midlIndex <- floor(minIndex + maxIndex) / 2
+5     if Pattern <= suffix of Text starting at position SuffixArray(midlIndex)
+6       maxIndex <- midlIndex
+7     else
+8       minIndex <- midlIndex + 1
+9   First <- minIndex
+10  maxIndex <- length(Text)
+11  while maxIndex > minIndex
+12    midlIndex <- floor(minIndex + maxIndex) / 2
+13    if suffix of Text starting at position SuffixArray(midlIndex) <= Pattern
+14      minIndex <- midlIndex + 1
+15    else
+16      maxInd <- midlIndex
+17  Last <- maxIndex - 1
+18  if Last < First
+19    return('Pattern does not appear in Text')
+20  else
+21    return First, Last
 ```
 
 
